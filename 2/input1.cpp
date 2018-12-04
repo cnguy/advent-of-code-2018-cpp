@@ -29,12 +29,16 @@ int main() {
 
         bool countTwoNotSet = true;
         bool countThreeNotSet = true;
-        for (auto it = frequencies.begin(); it != frequencies.end(); ++it) {
+        for (
+            auto it = frequencies.begin();
+            it != frequencies.end() && (countTwoNotSet || countThreeNotSet);
+            ++it
+        ) {
             if (it->second == 2 && countTwoNotSet) {
                 countTwo += 1;
                 countTwoNotSet = false;
             }
-            if (it->second == 3) {
+            if (it->second == 3 && countThreeNotSet) {
                 countThree += 1;
                 countThreeNotSet = false;
             }
